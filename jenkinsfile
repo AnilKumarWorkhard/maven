@@ -1,0 +1,14 @@
+pipline {
+agent none
+stages{
+
+stage("bulid & SonarQube Analysis"){
+agent any
+steps{
+withSonarQubeEnv('SonarQube_sever'){
+sh 'mvn clean package sonar:sonar'
+}
+}
+}
+}
+}
